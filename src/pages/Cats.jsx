@@ -8,10 +8,11 @@ export default function Cats() {
     async function fetchData() {
         const data = await fetchCats()
         setCats(data)
+        console.log(cats)
     }
-    useEffect(() => {
-        fetchData()
-    }, []) 
+    // useEffect(() => {
+    //     fetchData()
+    // }, []) 
     return (
         <>
             <h1>CATS IN NEED OF HOMES</h1>

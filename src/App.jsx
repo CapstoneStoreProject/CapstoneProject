@@ -5,6 +5,7 @@ import Cats from './pages/cats.jsx'
 import NavBar from './components/NavBar.jsx'
 import LoginPage from './pages/LogInPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
+import Cart from './pages/CartPage.jsx'
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
       <Routes>
         <Route path="/LoginPage" element={<LoginPage setToken={setToken} />}/>
         <Route path="/SignUpPage" element={<SignUpPage setToken={setToken}/>}/>
-        <Route path="/cats" element={<Cats />} />
+        <Route path="/Cats" element={<Cats token={token}/>} />
+        <Route path="/Cart" element={<Cart token={token}/>} />
       </Routes>
       </div>
     </>

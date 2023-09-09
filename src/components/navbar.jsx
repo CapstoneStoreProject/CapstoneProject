@@ -13,13 +13,13 @@ export default function NavBar({ token, setToken }) {
             <div id='navbar' >
                 <Link to="/SignUpPage">Sign Up</Link>
                 <Link to="/LoginPage">Login</Link>
-                <Link to="/Cats">Cats</Link>
+                <Link to="/">Cats</Link>
             </div>
         )
     } else if (token) {
         return (
             <div id='navbar' >
-                <Link to="/Cats">Cats</Link>
+                <Link to="/">Cats</Link>
                 <Link to="/Cart">Cart</Link>
                 <button onClick={handleClick}>Logout</button>
             </div>

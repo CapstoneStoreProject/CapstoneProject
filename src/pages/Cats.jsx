@@ -7,8 +7,9 @@ export default function Cats() {
     const [cats, setCats] = useState([]);
     async function fetchData() {
         const data = await fetchCats()
+        console.log(data)
         setCats(data)
-        console.log(cats)
+        
     }
     useEffect(() => {
         fetchData()

@@ -7,6 +7,7 @@ export default function NavBar({ token, setToken }) {
     function handleClick() {
         setToken("")
         navigate("/LoginPage")
+        //clear local storage
     }
     if (!token) {
         return (

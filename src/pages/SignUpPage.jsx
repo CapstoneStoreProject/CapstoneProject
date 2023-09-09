@@ -21,14 +21,14 @@ export default function SignUpPage({setToken}) {
                     { 
                         method: "POST", 
                         headers: { 
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
                         }, 
                         body: JSON.stringify({ 
-                            user: {
+                            
                                 name,
                                 username, 
-                                password 
-                            }
+                                password
+                            
                         }) 
                     })
                     const result = await response.json();
@@ -36,7 +36,7 @@ export default function SignUpPage({setToken}) {
                     console.log(result)
                     localStorage.setItem('token', token);
                     setToken(token)
-                    navigate('/Cats')
+                    navigate('/')
                 } catch (err) {
                     console.error(err)
                 }

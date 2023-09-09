@@ -6,7 +6,7 @@ import NavBar from './components/NavBar.jsx'
 import LoginPage from './pages/LogInPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
 import Cart from './pages/CartPage.jsx'
-
+const API_URL = 'http://localhost:4500/api'
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));

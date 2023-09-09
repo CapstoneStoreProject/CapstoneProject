@@ -11,7 +11,7 @@ export default function NavBar({ token, setToken }) {
     if (!token) {
         return (
             <div id='navbar' >
-                <Link to="/">Sign Up</Link>
+                <Link to="/SignUpPage">Sign Up</Link>
                 <Link to="/LoginPage">Login</Link>
                 <Link to="/Cats">Cats</Link>
             </div>

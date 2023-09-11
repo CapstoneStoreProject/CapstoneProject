@@ -5,9 +5,25 @@ export default function CatCard({ cat, fetchCats }) {
     return (
         <>
             <div className="CatCard" key={id}>
-                <p>{name}</p>
+                <h2>{name}</h2>
                 <img src={imgurl} width="200px"/>
-                <p>Age: {age}</p>
+                <p>
+                    <b>Age:</b> {age}
+                    <br></br>
+                    <b>Color:</b> {color}
+                    <br></br>
+                    <b>Sex:</b> {sex}
+                    <br></br>
+                    <b>Description:</b> {description}
+                    <br></br>
+                    <b>Breed:</b> {breed}
+                    <br></br>
+                    <b>Price:</b> {price}
+                    <br></br>
+                    <button>Add To Cart</button>
+                 
+                    
+                </p>
             </div>
         </>
     )

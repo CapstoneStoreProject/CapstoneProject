@@ -25,14 +25,16 @@ export default function LoginPage({setToken}) {
                 }) 
             })
             const result = await response.json();
-            if (result.success) {
-              const { token } = result.data
+            // if (result) {
+              const { token } = result
               localStorage.setItem('token', token);
               setToken(token)
+              console.log(result)
               navigate('/')
-            } else {
-              setErrorMessage(result.error.message)
-            }   
+            // } else {
+            //   setErrorMessage(result.errorMessage)
+            // }   
+           
             console.log(result)
             
         } catch (err) {
@@ -41,7 +43,7 @@ export default function LoginPage({setToken}) {
     }
       login()
     }
-    
+
     return (
       <div>
        

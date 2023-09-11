@@ -21,14 +21,12 @@ export default function SignUpPage({setToken}) {
                     { 
                         method: "POST", 
                         headers: { 
-                            "Content-Type": "application/json",
+                            "Content-Type": "application/json"
                         }, 
                         body: JSON.stringify({ 
-                            
                                 name,
                                 username, 
                                 password
-                            
                         }) 
                     })
                     const result = await response.json();

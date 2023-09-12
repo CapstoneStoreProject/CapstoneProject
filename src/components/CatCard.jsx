@@ -1,20 +1,17 @@
 import { useState } from 'react'
-import {fetchCatById, fetchCats} from '../API'
+import { fetchCats} from '../API'
 
 export default function CatCard({ token, cat, fetchCats }) {
     const { id, name, imgurl, age, sex, color, description, breed, price } = cat;
-    const [cart, setCart] = useState([])
-    async function handleClick(id, token) {
-        const cat = await fetchCatById(id, token)
-        // console.log(cat)
-        let cats = [...cart]
-        cats.push(cat)
-        setCart(cats)
-        // const cart = []
-        // cart.push(cat)
-        console.log(cart)
-       
-    }
+    // const cart = []
+    // console.log(token)
+    
+    
+        // console.log("cat", cat)
+        // let cats = [...cart]
+        // cats.push(cat)
+        // setCart(cats) 
+    
     return (
         <>
             <div className="CatCard" key={id}>
@@ -33,7 +30,7 @@ export default function CatCard({ token, cat, fetchCats }) {
                     <br></br>
                     <b>Price:</b> {price}
                     <br></br>
-                    <button className="addToCartButton" onClick={() => handleClick(id, token)}>Add to Cart</button>
+                    {/* <button className="addToCartButton" onClick={() => handleClick(id, token)}>Add to Cart</button> */}
                  
                     
                 </p>

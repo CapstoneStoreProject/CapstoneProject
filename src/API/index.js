@@ -13,7 +13,12 @@ export async function fetchCats() {
 
 export async function fetchCatById(id, token) {
     try {
-        const response = await fetch(`${API_URL}/cats/${id}`)
+        const response = await fetch(`${API_URL}/cats/${id}`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
         const result = await response.json();
         console.log(result);
         return result

@@ -10,3 +10,14 @@ export async function fetchCats() {
       console.error(err);
     }
 }
+
+export async function fetchCatById(id, token) {
+    try {
+        const response = await fetch(`${API_URL}/cats/${id}`)
+        const result = await response.json();
+        console.log(result);
+        return result
+    } catch(err) {
+        console.error(err);
+    }
+}

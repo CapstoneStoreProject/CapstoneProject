@@ -4,46 +4,47 @@ import { useNavigate } from 'react-router-dom'
 const API_URL = 'http://localhost:4500/api'
 
 export default function LoginPage({setToken}) {
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
   
     const navigate = useNavigate()
     async function submitForm(e) {
-      e.preventDefault()
-      const login = async () => {
-        try {
-            const response = await fetch(`${API_URL}/users/login`, 
-            { 
-                method: "POST", 
-                headers: { 
-                    "Content-Type": "application/json" 
-                }, 
-                body: JSON.stringify({ 
-                        username, 
-                        password 
-                }) 
-            })
-            const result = await response.json();
-            // if (result) {
-              const { token } = result
-              localStorage.setItem('token', token);
-              setToken(token)
-              console.log(result)
-              navigate('/')
-            // } else {
-            //   setErrorMessage(result.errorMessage)
-            // }   
-           
-            console.log(result)
-            
-        } catch (err) {
-            console.error(err)
-        }          
+        e.preventDefault()
+        if (!username || !password) {
+            setErrorMessage("Please supply both a username and password")
+        } else {
+            const login = async () => {
+            try {
+                const response = await fetch(`${API_URL}/users/login`, 
+                { 
+                    method: "POST", 
+                    headers: { 
+                        "Content-Type": "application/json" 
+                    }, 
+                    body: JSON.stringify({ 
+                            username, 
+                            password 
+                    }) 
+                })
+                const result = await response.json();
+                const { token } = result
+                localStorage.setItem('token', token);
+                setToken(token)
+                console.log(result)
+                if (token) {
+                    navigate('/')
+                } else {
+                    setErrorMessage(result.errorMessage)
+                }     
+            } catch (err) {
+                console.error(err)
+            }          
+        }
+        login()
+        }
     }
-      login()
-    }
-
     return (
       <div>
        

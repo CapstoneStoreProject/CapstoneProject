@@ -9,18 +9,12 @@ import Cart from './pages/CartPage.jsx'
 const API_URL = 'http://localhost:4500/api'
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem('token'));
-  const [cart, setCart] = useState([])
-  if (cart.length) {
-    let returnString = localStorage.getItem('cart')
-    let returnArray = JSON.parse(returnString)
-    console.log(returnArray)
-    // setCart(returnArray)
+  let initialState = []
+  if (localStorage.getItem('cart')) {
+    initialState = JSON.parse(localStorage.getItem('cart'))
   }
-  
-  
-
-  
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [cart, setCart] = useState(initialState)
 
   return (
     <>

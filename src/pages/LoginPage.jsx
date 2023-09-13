@@ -37,7 +37,9 @@ export default function LoginPage({setToken}) {
                     navigate('/')
                 } else {
                     setErrorMessage(result.errorMessage)
-                }     
+                }   
+            
+  
             } catch (err) {
                 console.error(err)
             }          

@@ -10,6 +10,18 @@ const API_URL = 'http://localhost:4500/api'
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
+  const [cart, setCart] = useState([])
+  if (cart.length) {
+    let returnString = localStorage.getItem('cart')
+    let returnArray = JSON.parse(returnString)
+    console.log(returnArray)
+    // setCart(returnArray)
+  }
+  
+  
+
+  
+
   return (
     <>
       <NavBar token={token} setToken={setToken}/>
@@ -18,8 +30,8 @@ function App() {
       <Routes>
         <Route path="/LoginPage" element={<LoginPage setToken={setToken} />}/>
         <Route path="/SignUpPage" element={<SignUpPage setToken={setToken}/>}/>
-        <Route path="/" element={<Cats token={token}/>} />
-        <Route path="/Cart" element={<Cart token={token}/>} />
+        <Route path="/" element={<Cats token={token} setCart={setCart} cart={cart}/>} />
+        <Route path="/Cart" element={<Cart token={token} cart={cart}/>} />
       </Routes>
       </div>
     </>

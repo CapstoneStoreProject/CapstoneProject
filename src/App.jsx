@@ -7,6 +7,7 @@ import LoginPage from './pages/LogInPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
 import Cart from './pages/CartPage.jsx'
 import HomePage from './pages/HomePage'
+import CheckoutPage from './pages/CheckoutPage.jsx'
 const API_URL = 'http://localhost:4500/api'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Cats token={token} setCart={setCart} cart={cart}/>} />
         <Route path="/Cart" element={<Cart token={token} cart={cart}/>} />
         <Route path="/HomePage" element={<HomePage />}/>
+        <Route path="/CheckoutPage" element={<CheckoutPage />} />
       </Routes>
       </div>
     </>

@@ -15,11 +15,13 @@ export default function NavBar({ token, setToken }) {
                 <Link to="/SignUpPage">Sign Up</Link>
                 <Link to="/LoginPage">Login</Link>
                 <Link to="/">Cats</Link>
+                <Link to="/HomePage">Home</Link>
             </div>
         )
     } else if (token) {
         return (
             <div id='navbar' >
+                <Link to="/HomePage">Home</Link>
                 <Link to="/">Cats</Link>
                 <Link to="/Cart">Cart</Link>
                 <button onClick={handleClick}>Logout</button>

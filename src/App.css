@@ -44,3 +44,16 @@
 a {
   padding: 20px;
 }
+
+.cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  margin: 2em;
+  border: 1px solid white;
+  border-radius: 0.5em;
+  text-align: center;
+  transition: all 300ms;
+}

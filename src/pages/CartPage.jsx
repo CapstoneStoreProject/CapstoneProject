@@ -13,15 +13,15 @@ export default function Cart({token, cat, id, cart}) {
             <h1>Cart Page</h1>
             <main>
                 {
-                    cart.map((cat) => (<div key={cat.id}>
-                        <CatCard
-                            cat={cat}
-                            token={token}
-                        />
-                        <p>stretch goal: insert application form link </p>
-                        <button className="removeFromCartButton" onClick={() => handleClick(cat.id, token)}>Remove From Cart</button>
-
-                            </div>
+                    cart.map((cat) => (
+                        <div className='cat' key={cat.id}>
+                            <CatCard
+                                cat={cat}
+                                token={token}
+                            />
+                            <p>stretch goal: insert application form link </p>
+                            <button className="removeFromCartButton" onClick={() => handleClick(cat.id, token)}>Remove From Cart</button>
+                        </div>
                         ))
                     }
                     <br></br>

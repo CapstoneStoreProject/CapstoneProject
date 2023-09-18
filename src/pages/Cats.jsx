@@ -10,7 +10,6 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
     const [selectedBreed, setSelectedBreed] = useState('all')
     // const [errorMessage, setErrorMessage] = useState("")
     
-
     async function fetchData() {
         const cats = await fetchCats();
         // console.log(data)
@@ -24,14 +23,10 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
     async function handleClick(id, token) {
         // console.log("id", id)
         const Cat = await fetchCatById(id, token)
-        console.log(Cat)
-        // for (let i = 0; i < cart.length; i++) {
-
-        // }
-        console.log(cart)
+        // console.log(Cat)
+        // console.log(cart)
             const catIds = cart.map(cat => cat.id)
         if (token) {
-            
             // console.log(catIds)
             if (catIds.includes(Cat.id) === false) {
                 try {
@@ -48,7 +43,6 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
                 
         } else {
             console.log("You must be logged in to add to cart")
-//HOW DO I GET THE ERROR MESSAGE TO DISPLAY ON THE SCREEN WHERE THE USER CAN SEE IT?
             // setErrorMessage("You must be logged in to add to cart")
         }
     }
@@ -65,7 +59,6 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
     if (selectedBreed !== 'all') {
         filteredCats = cats.filter(cat => cat.breed === selectedBreed)
     } 
-  
 
     // console.log(cart)
     if (token) {

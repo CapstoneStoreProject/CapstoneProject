@@ -1,7 +1,7 @@
 import { Link, useNavigate} from 'react-router-dom'
 
 
-export default function NavBar({ token, setToken }) {
+export default function NavBar({ token, setToken, cart }) {
     //conditionally render links based on token
     const navigate = useNavigate()
     function handleClick() {
@@ -23,7 +23,7 @@ export default function NavBar({ token, setToken }) {
             <div id='navbar' >
                 <Link to="/HomePage">Home</Link>
                 <Link to="/">Cats</Link>
-                <Link to="/Cart">Cart</Link>
+                <Link to="/Cart"> <span>Cart {cart.length}</span></Link>
                 <button onClick={handleClick}>Logout</button>
             </div>
         )

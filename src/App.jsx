@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <NavBar token={token} setToken={setToken}/>
+      <NavBar token={token} setToken={setToken} cart={cart}/>
       <h1>FREE CATS</h1>
       <div>
       <Routes>
@@ -29,7 +29,7 @@ function App() {
         <Route path="/" element={<Cats token={token} setCart={setCart} cart={cart}/>} />
         <Route path="/Cart" element={<Cart token={token} cart={cart}/>} />
         <Route path="/HomePage" element={<HomePage />}/>
-        <Route path="/CheckoutPage" element={<CheckoutPage />} />
+        <Route path="/CheckoutPage" element={<CheckoutPage token={token} setCart={setCart} cart={cart}/>} />
       </Routes>
       </div>
     </>

@@ -21,7 +21,7 @@ export default function Cats({token, cat, id, cart, setCart, breed}) {
     }
     console.log(breeds)
 
-    async function handleClick(id, token, cart) {
+    async function handleClick(id, token, cart, setCart) {
         // console.log("id", id)
         const Cat = await fetchCatById(id, token)
         // console.log(Cat)

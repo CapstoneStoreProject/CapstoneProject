@@ -3,7 +3,7 @@ import CatCard from "../components/CatCard";
 import { fetchCatById, fetchCats } from "../API/index.js"
 
 //get all cats and map them
-export default function Cats({token, cat, id, cart, setCart, breed}) {
+export default function Cats({token, cat, id, setCart, cart, breed}) {
     // const { id, name, imgurl, age, sex, color, description, breed, price } = cat;
     const [cats, setCats] = useState([]);
     const [breeds, setBreeds] = useState([])
@@ -12,25 +12,26 @@ export default function Cats({token, cat, id, cart, setCart, breed}) {
     
 
     async function fetchData() {
-        const data = await fetchCats();
+        const cats = await fetchCats();
         // console.log(data)
-        const breeds = data.map(cat => cat.breed);
+        const breeds = cats.map(cat => cat.breed);
         const uniqueBreeds = [...new Set(breeds)];
         setBreeds(uniqueBreeds);
-        setCats(data);
+        setCats(cats);
     }
     console.log(breeds)
 
-    async function handleClick(id, token, cart, setCart) {
+    async function handleClick(id, token) {
         // console.log("id", id)
         const Cat = await fetchCatById(id, token)
-        // console.log(Cat)
+        console.log(Cat)
         // for (let i = 0; i < cart.length; i++) {
 
         // }
-        if (token) {
-            console.log(cart)
+        console.log(cart)
             const catIds = cart.map(cat => cat.id)
+        if (token) {
+            
             // console.log(catIds)
             if (catIds.includes(Cat.id) === false) {
                 try {

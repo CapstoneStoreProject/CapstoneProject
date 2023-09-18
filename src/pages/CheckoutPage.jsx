@@ -1,4 +1,11 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function CheckoutPage({token, cart, setCart}) {
+    const navigate = useNavigate()
+    function handleClick() {
+        setCart('')
+        navigate('/')
+    }
     return (
         <>
             <h1>Checkout</h1>
@@ -6,6 +13,7 @@ export default function CheckoutPage({token, cart, setCart}) {
             <p>choose pickup or delivery</p>
             <p>delivery of cat flat rate (stretch goal price based on milage)</p>
             <p>pick up cat for free</p>
+            <button onClick={() => handleClick()}>Checkout</button>
         </>
     )
 }

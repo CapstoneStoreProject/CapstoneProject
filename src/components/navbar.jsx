@@ -23,7 +23,7 @@ export default function NavBar({ token, setToken, cart }) {
             <div id='navbar' >
                 <Link to="/HomePage">Home</Link>
                 <Link to="/">Cats</Link>
-                <Link to="/Cart"> <span>Cart {cart.length}</span></Link>
+                <Link to="/Cart"> <span>Cart <sup>{cart.length}</sup></span></Link>
                 <button onClick={handleClick}>Logout</button>
             </div>
         )

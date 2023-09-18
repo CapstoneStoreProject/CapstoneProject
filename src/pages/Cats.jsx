@@ -96,7 +96,7 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
                         <option value={breed} key={breed}>{breed}</option>
                     ))}
                 </select>
-                <h3>Sort By</h3>
+                <h3>View By</h3>
                 <select value={sortBy} onChange={selectSortBy}>
                     <option value="ageIncrease">Youngest to Oldest</option>
                     <option value="ageDecrease">Oldest to Youngest</option>

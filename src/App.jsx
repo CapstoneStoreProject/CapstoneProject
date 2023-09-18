@@ -27,7 +27,7 @@ function App() {
         <Route path="/LoginPage" element={<LoginPage setToken={setToken} />}/>
         <Route path="/SignUpPage" element={<SignUpPage setToken={setToken}/>}/>
         <Route path="/" element={<Cats token={token} setCart={setCart} cart={cart}/>} />
-        <Route path="/Cart" element={<Cart token={token} cart={cart}/>} />
+        <Route path="/Cart" element={<Cart token={token} cart={cart} setCart={setCart}/>} />
         <Route path="/HomePage" element={<HomePage />}/>
         <Route path="/CheckoutPage" element={<CheckoutPage token={token} setCart={setCart} cart={cart}/>} />
       </Routes>

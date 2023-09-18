@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import CatCard from "../components/CatCard"
 import { fetchCatById } from "../API"
+import { useState } from 'react'
 
-export default function Cart({token, cat, id, cart}) {
+export default function Cart({token, cat, id, cart, setCart}) {
     console.log(cart)
-    async function handleClick(id, token) {
-        const Cat = await fetchCatById(id, token)
+    // const [catCart, setCatCart] = useState([])
+    async function deleteCat(id) {
+        // const Cat = await fetchCatById(id, token)
+        setCart(cart.filter(cat => cat.id !== id))
     }
 
     return (
@@ -20,7 +23,7 @@ export default function Cart({token, cat, id, cart}) {
                                 token={token}
                             />
                             <p>stretch goal: insert application form link </p>
-                            <button className="removeFromCartButton" onClick={() => handleClick(cat.id, token)}>Remove From Cart</button>
+                            <button className="removeFromCartButton" onClick={() => deleteCat(cat.id)}>Remove From Cart</button>
                         </div>
                         ))
                     }

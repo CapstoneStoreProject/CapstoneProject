@@ -8,6 +8,8 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
     const [cats, setCats] = useState([]);
     const [breeds, setBreeds] = useState([])
     const [selectedBreed, setSelectedBreed] = useState('all')
+    const [sortBy, setSortBy] = useState('ageIncrease');
+
     // const [errorMessage, setErrorMessage] = useState("")
     
     async function fetchData() {
@@ -25,7 +27,7 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
         const Cat = await fetchCatById(id, token)
         // console.log(Cat)
         // console.log(cart)
-            const catIds = cart.map(cat => cat.id)
+        const catIds = cart.map(cat => cat.id)
         if (token) {
             // console.log(catIds)
             if (catIds.includes(Cat.id) === false) {
@@ -55,10 +57,33 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
         setSelectedBreed(e.target.value)
     }
 
+    function selectSortBy(e) {
+        setSortBy(e.target.value);
+    }
+
+    function sortByAgeIncreasing() {
+        filteredCats.sort((a, b) => {
+              return a.age - b.age
+        })
+    }
+    
+    function sortByAgeDecreasing() {
+        filteredCats.sort((a, b) => {
+              return b.age - a.age
+        })
+    }
+    
     let filteredCats = cats
     if (selectedBreed !== 'all') {
         filteredCats = cats.filter(cat => cat.breed === selectedBreed)
     } 
+    if (sortBy === 'ageIncrease') {
+        sortByAgeIncreasing()
+    } else if (sortBy === 'ageDecrease') {
+        sortByAgeDecreasing()
+    }
+
+    
 
     // console.log(cart)
     if (token) {
@@ -70,6 +95,11 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
                     {breeds.map(breed => (
                         <option value={breed} key={breed}>{breed}</option>
                     ))}
+                </select>
+                <h3>Sort By</h3>
+                <select value={sortBy} onChange={selectSortBy}>
+                    <option value="ageIncrease">Youngest to Oldest</option>
+                    <option value="ageDecrease">Oldest to Youngest</option>
                 </select>
                 <main>
                     {

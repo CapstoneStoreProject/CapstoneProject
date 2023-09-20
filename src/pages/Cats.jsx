@@ -3,7 +3,7 @@ import CatCard from "../components/CatCard";
 import { fetchCatById, fetchCats } from "../API/index.js"
 
 //get all cats and map them
-export default function Cats({token, cat, id, setCart, cart, breed}) {
+export default function Cats({token, cat, id, setCart, cart}) {
     // const { id, name, imgurl, age, sex, color, description, breed, price } = cat;
     const [cats, setCats] = useState([]);
     const [breeds, setBreeds] = useState([])
@@ -149,17 +149,28 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
         return (
             <>
                 <h1>CATS IN NEED OF HOMES</h1>
-                <select onChange={selectBreed}>
-                    <option value="all">All</option>
-                    {breeds.map(breed => (
-                        <option value={breed} key={breed}>{breed}</option>
-                    ))}
-                </select>
-                <h3>View By</h3>
-                <select value={sortBy} onChange={selectSortBy}>
-                    <option value="ageIncrease">Youngest to Oldest</option>
-                    <option value="ageDecrease">Oldest to Youngest</option>
-                </select>
+                <p>Breeds:  
+                    <select onChange={selectBreed}>
+                        <option value="all">All</option>
+                        {breeds.map(breed => (
+                            <option value={breed} key={breed}>{breed}</option>
+                        ))}
+                    </select>
+                </p>
+                <p>Sex:  
+                    <select onChange={selectSex}>
+                        <option value="all">All</option>
+                        {sexes.map(sex => (
+                            <option value={sex} key={sex}>{sex}</option>
+                        ))}
+                    </select>
+                </p>
+                <p>View By Order:
+                    <select value={sortBy} onChange={selectSortBy}>
+                        <option value="ageIncrease">Youngest to Oldest</option>
+                        <option value="ageDecrease">Oldest to Youngest</option>
+                    </select>
+                </p>
                 <main>
                     {
                         filteredCats.map((cat) => (

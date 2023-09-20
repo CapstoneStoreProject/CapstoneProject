@@ -8,6 +8,8 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
     const [cats, setCats] = useState([]);
     const [breeds, setBreeds] = useState([])
     const [selectedBreed, setSelectedBreed] = useState('all')
+    const [sexes, setSex] = useState([])
+    const [selectedSex, setSelectedSex] = useState('all')
     const [sortBy, setSortBy] = useState('ageIncrease');
 
     // const [errorMessage, setErrorMessage] = useState("")
@@ -18,6 +20,14 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
         const breeds = cats.map(cat => cat.breed);
         const uniqueBreeds = [...new Set(breeds)];
         setBreeds(uniqueBreeds);
+        setCats(cats);
+    }
+    async function fetchSex() {
+        const cats = await fetchCats();
+        // console.log(data)
+        const sexes = cats.map(cat => cat.sex);
+        const uniqueSexes= [...new Set(sexes)];
+     setSex(uniqueSexes);
         setCats(cats);
     }
     // console.log(breeds)
@@ -51,12 +61,16 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
     
     useEffect(() => {
         fetchData()
+        fetchSex()
     }, []) 
 
     function selectBreed(e) {
         setSelectedBreed(e.target.value)
     }
 
+    function selectSex(e) {
+        setSelectedSex(e.target.value)
+    }
     function selectSortBy(e) {
         setSortBy(e.target.value);
     }
@@ -77,6 +91,9 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
     if (selectedBreed !== 'all') {
         filteredCats = cats.filter(cat => cat.breed === selectedBreed)
     } 
+    if (selectedSex !== 'all') {
+        filteredCats = cats.filter(cat => cat.sex === selectedSex)
+    } 
     if (sortBy === 'ageIncrease') {
         sortByAgeIncreasing()
     } else if (sortBy === 'ageDecrease') {
@@ -90,17 +107,28 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
         return (
             <>
                 <h1>CATS IN NEED OF HOMES</h1>
-                <select onChange={selectBreed}>
-                    <option value="all">All</option>
-                    {breeds.map(breed => (
-                        <option value={breed} key={breed}>{breed}</option>
-                    ))}
-                </select>
-                <h3>View By</h3>
-                <select value={sortBy} onChange={selectSortBy}>
-                    <option value="ageIncrease">Youngest to Oldest</option>
-                    <option value="ageDecrease">Oldest to Youngest</option>
-                </select>
+                <p>Breeds:  
+                    <select onChange={selectBreed}>
+                        <option value="all">All</option>
+                        {breeds.map(breed => (
+                            <option value={breed} key={breed}>{breed}</option>
+                        ))}
+                    </select>
+                </p>
+                <p>Sex:  
+                    <select onChange={selectSex}>
+                        <option value="all">All</option>
+                        {sexes.map(sex => (
+                            <option value={sex} key={sex}>{sex}</option>
+                        ))}
+                    </select>
+                </p>
+                <p>View By Order:
+                    <select value={sortBy} onChange={selectSortBy}>
+                        <option value="ageIncrease">Youngest to Oldest</option>
+                        <option value="ageDecrease">Oldest to Youngest</option>
+                    </select>
+                </p>
                 <main>
                     {
                         filteredCats.map((cat => (
@@ -126,6 +154,11 @@ export default function Cats({token, cat, id, setCart, cart, breed}) {
                     {breeds.map(breed => (
                         <option value={breed} key={breed}>{breed}</option>
                     ))}
+                </select>
+                <h3>View By</h3>
+                <select value={sortBy} onChange={selectSortBy}>
+                    <option value="ageIncrease">Youngest to Oldest</option>
+                    <option value="ageDecrease">Oldest to Youngest</option>
                 </select>
                 <main>
                     {

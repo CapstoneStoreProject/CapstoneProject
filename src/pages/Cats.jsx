@@ -12,7 +12,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
     const [selectedSex, setSelectedSex] = useState('all')
     const [sortBy, setSortBy] = useState('ageIncrease');
 
-    // const [errorMessage, setErrorMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
     
     async function fetchData() {
         const cats = await fetchCats();
@@ -32,8 +32,9 @@ export default function Cats({token, cat, id, setCart, cart}) {
     }
     // console.log(breeds)
 
-    async function handleClick(id, token) {
+    async function handleClick(id, token, e) {
         // console.log("id", id)
+        e.preventDefault()
         const Cat = await fetchCatById(id, token)
         // console.log(Cat)
         console.log(cart)
@@ -50,12 +51,15 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     console.error(err)
                 }
             } else {
-                console.log("You already added this cat to your cart")
+                // console.log("You already added this cat to your cart")
+                setErrorMessage("You already added this cat to your cart")
+                
             }
                 
         } else {
             console.log("You must be logged in to add to cart")
             // setErrorMessage("You must be logged in to add to cart")
+            
         }
     }
     
@@ -138,10 +142,13 @@ export default function Cats({token, cat, id, setCart, cart}) {
                                 token={token}
                                 fetchData={fetchData}
                             />
-                            <button className="addToCartButton" onClick={() => handleClick(cat.id, token)}>Add to Cart</button>
+                            <button className="addToCartButton" onClick={(e) => {setErrorMessage(''); handleClick(cat.id, token, e)}}>Add to Cart</button>
+                            {/* <p>{errorMessage}</p> */}
                             </div>
                         )))
+                        
                     }
+                    <p>{errorMessage}</p>
                 </main>
             </>
         )

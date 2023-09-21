@@ -27,7 +27,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
         // console.log(data)
         const sexes = cats.map(cat => cat.sex);
         const uniqueSexes= [...new Set(sexes)];
-     setSex(uniqueSexes);
+        setSex(uniqueSexes);
         setCats(cats);
     }
     // console.log(breeds)
@@ -51,9 +51,9 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     console.error(err)
                 }
             } else {
-                // console.log("You already added this cat to your cart")
+                console.log("You already added this cat to your cart")
                 setErrorMessage("You already added this cat to your cart")
-                
+                await alert(errorMessage)
             }
                 
         } else {
@@ -143,12 +143,9 @@ export default function Cats({token, cat, id, setCart, cart}) {
                                 fetchData={fetchData}
                             />
                             <button className="addToCartButton" onClick={(e) => {setErrorMessage(''); handleClick(cat.id, token, e)}}>Add to Cart</button>
-                            {/* <p>{errorMessage}</p> */}
                             </div>
-                        )))
-                        
+                        )))     
                     }
-                    <p>{errorMessage}</p>
                 </main>
             </>
         )

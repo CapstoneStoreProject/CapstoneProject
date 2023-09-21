@@ -8,7 +8,7 @@ import SignUpPage from './pages/SignUpPage.jsx'
 import Cart from './pages/CartPage.jsx'
 import HomePage from './pages/HomePage'
 import CheckoutPage from './pages/CheckoutPage.jsx'
-const API_URL = 'http://localhost:4500/api'
+// const API_URL = 'http://localhost:4500/api'
 
 function App() {
   let initialState = []

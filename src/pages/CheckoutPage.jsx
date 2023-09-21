@@ -1,9 +1,17 @@
 import { useNavigate } from 'react-router-dom'
+import { deleteCatById } from '../API'
 
 export default function CheckoutPage({token, cart, setCart}) {
+    console.log(cart)
     const navigate = useNavigate()
-    function handleClick() {
+    async function handleClick() {
+        for (let i = 0; i < cart.length; i++) {
+            await deleteCatById(cart[i].id)
+        }
+        
         setCart('')
+        //how do I delete them from the main cats array?
+        
         navigate('/')
     }
     return (

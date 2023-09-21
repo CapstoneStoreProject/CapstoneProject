@@ -93,10 +93,10 @@ export default function Cats({token, cat, id, setCart, cart}) {
     
     let filteredCats = cats
     if (selectedBreed !== 'all') {
-        filteredCats = cats.filter(cat => cat.breed === selectedBreed)
+        filteredCats = filteredCats.filter(cat => cat.breed === selectedBreed)
     } 
     if (selectedSex !== 'all') {
-        filteredCats = cats.filter(cat => cat.sex === selectedSex)
+        filteredCats = filteredCats.filter(cat => cat.sex === selectedSex)
     } 
     if (sortBy === 'ageIncrease') {
         sortByAgeIncreasing()

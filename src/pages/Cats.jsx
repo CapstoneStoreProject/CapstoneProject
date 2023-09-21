@@ -52,8 +52,8 @@ export default function Cats({token, cat, id, setCart, cart}) {
                 }
             } else {
                 console.log("You already added this cat to your cart")
-                setErrorMessage("You already added this cat to your cart")
-                await alert(errorMessage)
+                // setErrorMessage("You already added this cat to your cart")
+                alert("You already added this cat to your cart")
             }
                 
         } else {

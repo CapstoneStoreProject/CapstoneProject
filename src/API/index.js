@@ -31,6 +31,7 @@ export async function fetchCatById(id, token) {
 export async function deleteCatById(id, token) {
     try {
         const response = await fetch(`${API_URL}/cats/${id}`,{
+            //attach body to send whole cart array to backend then loop over it in the backend to delete
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

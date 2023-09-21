@@ -6,11 +6,10 @@ export default function CheckoutPage({token, cart, setCart}) {
     const navigate = useNavigate()
     async function handleClick() {
         for (let i = 0; i < cart.length; i++) {
-            await deleteCatById(cart[i].id)
+            await deleteCatById(cart[i].id, token)
         }
         
-        setCart('')
-        //how do I delete them from the main cats array?
+        setCart([])
         
         navigate('/')
     }

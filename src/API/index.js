@@ -36,8 +36,8 @@ export async function deleteCatById(id, token) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
-            }
-            
+            },
+            // body: JSON.stringify(cart)
         })
         const result = await response.json();
         console.log(result);

@@ -12,7 +12,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
     const [selectedSex, setSelectedSex] = useState('all')
     const [sortBy, setSortBy] = useState('ageIncrease');
 
-    const [errorMessage, setErrorMessage] = useState("")
+    // const [errorMessage, setErrorMessage] = useState("")
     
     async function fetchData() {
         const cats = await fetchCats();

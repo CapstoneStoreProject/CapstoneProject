@@ -45,7 +45,6 @@ export default function NavBar({ token, setToken, cart }) {
                                 <Link to="/HomePage" className="nav-link" href="#">Home</Link>
                                 <Link to="/" className="nav-link" href="#">Cats</Link>
                                 <Link to="/Cart" className="nav-link"  href="#"><span>Cart <sup>{cart.length}</sup></span></Link>
-                                {/* <Link to="/LoginPage" className="nav-link" href="#">Log In</Link> */}
                                 <button className="nav-link" onClick={handleClick}>Logout</button>
                                 {/* <a className="nav-link disabled" aria-disabled="true">Disabled</a> */}
                             </div>

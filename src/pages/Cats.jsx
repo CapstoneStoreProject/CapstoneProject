@@ -142,7 +142,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
                                 token={token}
                                 fetchData={fetchData}
                             />
-                            <button className="addToCartButton" onClick={(e) => {setErrorMessage(''); handleClick(cat.id, token, e)}}>Add to Cart</button>
+                            <button className="addToCartButton" onClick={(e) => handleClick(cat.id, token, e)}>Add to Cart</button>
                             </div>
                         )))     
                     }

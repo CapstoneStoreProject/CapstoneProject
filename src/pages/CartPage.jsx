@@ -13,7 +13,7 @@ export default function Cart({token, cat, id, cart, setCart}) {
 
     return (
         <>
-            <h1>Cart Page</h1>
+            <h1>Cart</h1>
             <main>
                 {
                     cart.map((cat) => (

@@ -21,7 +21,6 @@ function App() {
   return (
     <>
       <NavBar token={token} setToken={setToken} cart={cart}/>
-      {/* <h1>FREE CATS</h1> */}
       <div>
       <Routes>
         <Route path="/LoginPage" element={<LoginPage setToken={setToken} />}/>

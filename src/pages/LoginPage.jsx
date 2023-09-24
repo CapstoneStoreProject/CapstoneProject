@@ -37,12 +37,11 @@ export default function LoginPage({setToken}) {
                 console.log(result)
                 if (token) {
                     navigate('/')
-                } else {
-                    setErrorMessage(result.errorMessage)
-                }   
+                }
             
   
             } catch (err) {
+                alert("Incorrect username or password")
                 console.error(err)
             }          
         }

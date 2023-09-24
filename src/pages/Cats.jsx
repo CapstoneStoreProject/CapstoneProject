@@ -4,15 +4,12 @@ import { fetchCatById, fetchCats } from "../API/index.js"
 
 //get all cats and map them
 export default function Cats({token, cat, id, setCart, cart}) {
-    // const { id, name, imgurl, age, sex, color, description, breed, price } = cat;
     const [cats, setCats] = useState([]);
     const [breeds, setBreeds] = useState([])
     const [selectedBreed, setSelectedBreed] = useState('all')
     const [sexes, setSex] = useState([])
     const [selectedSex, setSelectedSex] = useState('all')
     const [sortBy, setSortBy] = useState('ageIncrease');
-
-    // const [errorMessage, setErrorMessage] = useState("")
     
     async function fetchData() {
         const cats = await fetchCats();
@@ -37,7 +34,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
         e.preventDefault()
         const Cat = await fetchCatById(id, token)
         // console.log(Cat)
-        console.log(cart)
+        // console.log(cart)
         const catIds = cart.map(cat => cat.id)
         if (token) {
             // console.log(catIds)
@@ -103,8 +100,6 @@ export default function Cats({token, cat, id, setCart, cart}) {
     } else if (sortBy === 'ageDecrease') {
         sortByAgeDecreasing()
     }
-
-    
 
     // console.log(cart)
     if (token) {

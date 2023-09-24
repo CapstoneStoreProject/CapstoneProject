@@ -57,7 +57,7 @@ export default function SignUpPage({setToken}) {
                 type="name"
                 id="name"
                 onChange={(e) => {
-                    setErrorMessage('');
+                    setErrorMessage(false);
                     setName(e.target.value)
                 }} 
             />
@@ -67,7 +67,8 @@ export default function SignUpPage({setToken}) {
                 type="username"
                 id="username"
                 onChange={(e) => {
-                    setErrorMessage('');
+                    
+                    setErrorMessage(false);
                     setUsername(e.target.value)
                 }} 
             />
@@ -78,11 +79,13 @@ export default function SignUpPage({setToken}) {
                 type="password"
                 id="password"
                 onChange={(e) => {
-                    setErrorMessage('');
+                    
+                    setErrorMessage(false);
                     setPassword(e.target.value)
                 }}
             />
-            <p>{errorMessage}</p>
+            {/* <p>{errorMessage}</p> */}
+            <br></br>
             <button type="submit">Sign Up</button>
         </form>
         {errorMessage && <p>Your password must contain at least one uppercase letter, one lowercase letter, one number and one special character.</p>}

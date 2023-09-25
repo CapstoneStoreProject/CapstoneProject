@@ -49,31 +49,3 @@ export async function deleteCatById(id, token) {
     }
 }
 
-// export async function getUserByUsername(username) {
-
-//     try {
-//         const response = await fetch(`${API_URL}/users/users`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(username)
-//         })
-//         const result = await response.json();
-//         // console.log(result.username, "result")
-//         if (result) {
-//             return true;
-//         }
-       
-//         // console.log(result, "result")
-//         // console.log(username, "username")
-//         // console.log(users.username, "result.username")
-//         // if (username === result.username) {
-//         //     return true;
-//         // } else {
-//         //     return false;
-//         // }  
-//     } catch(err) {
-//         console.error(err);
-//     }
-// }

@@ -1,50 +1,24 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { validPassword } from '../components/regex.js'
-// import { getUserByUsername } from '../API/index.js'
 
 const API_URL = 'http://localhost:4500/api'
 // const API_URL = 'https://freecats.onrender.com/api'
 
 export default function SignUpPage({setToken}) {
-    // const [users, setUsers] = useState([])
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [pwdErrorMessage, setPwdErrorMessage] = useState(false)
     const [usrErrorMessage, setUsrErrorMessage] = useState(false)
     
-    // async function getUsers(username) {
-    //     try {
-    //         const response = await fetch(`${API_URL}/users/register`, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         })
-    //         const result= await response.json();
-    //         // const users = result;
-    //         setUsers(result)
-    //         console.log(result, "result")
-    //         console.log(username, "username")
-    //         console.log(users, "result.username")
-    //         if (username === result.username) {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }  
-    //     } catch(err) {
-    //         console.error(err);
-    //     }
-    // }
+ 
     const navigate = useNavigate()
     async function submitForm(e) {
         e.preventDefault()
         if(!validPassword.test(password)) {
             setPwdErrorMessage(true);
-        //if username already exists, error
-        // } else if (getUserByUsername(username)) {
-        //     setUsrErrorMessage(true)
+      
         } else { 
             
             const signUp = async () => {
@@ -112,7 +86,7 @@ export default function SignUpPage({setToken}) {
                     setPassword(e.target.value)
                 }}
             />
-            {/* <p>{errorMessage}</p> */}
+          
             <br></br>
             <button type="submit">Sign Up</button>
         </form>

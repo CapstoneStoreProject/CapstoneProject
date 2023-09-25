@@ -135,7 +135,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     <select value={sortBy} onChange={selectSortBy}>
                         <option value="ageIncrease">Youngest to Oldest</option>
                         <option value="ageDecrease">Oldest to Youngest</option>
-                        <option value="alphabetical">Alphabetical</option>
+                        {/* <option value="alphabetical">Alphabetical</option> */}
                     </select>
                 </p>
                 <main>
@@ -178,7 +178,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     <select value={sortBy} onChange={selectSortBy}>
                         <option value="ageIncrease">Youngest to Oldest</option>
                         <option value="ageDecrease">Oldest to Youngest</option>
-                        <option value="alphabetical">Alphabetical</option>
+                        {/* <option value="alphabetical">Alphabetical</option> */}
 
                     </select>
                 </p>

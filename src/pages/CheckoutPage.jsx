@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteCatById } from '../API'
 import { Autocomplete, verify, AddressForm } from '@lob/react-address-autocomplete'
@@ -31,10 +32,10 @@ export default function CheckoutPage({token, cart, setCart}) {
             </form>
             
             <p>choose pickup or delivery</p>
-            <AddressForm
+            {/* <AddressForm
                 apiKey="YOUR_API_KEY"
                 onSelection={selected => setSelectedAddress(selected.value)}
-            />
+            /> */}
             <p>delivery of cat flat rate (stretch goal price based on milage)</p>
             <p>pick up cat for free</p>
             <button onClick={() => handleClick()}>Checkout</button>

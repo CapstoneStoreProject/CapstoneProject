@@ -10,9 +10,7 @@ export default function SignUpPage({setToken}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState(false)
-    // const [pwdError, setPwdError] = useState(false);
-   
-   
+
     const navigate = useNavigate()
     async function submitForm(e) {
         e.preventDefault()
@@ -67,7 +65,6 @@ export default function SignUpPage({setToken}) {
                 type="username"
                 id="username"
                 onChange={(e) => {
-                    
                     setErrorMessage(false);
                     setUsername(e.target.value)
                 }} 
@@ -79,7 +76,6 @@ export default function SignUpPage({setToken}) {
                 type="password"
                 id="password"
                 onChange={(e) => {
-                    
                     setErrorMessage(false);
                     setPassword(e.target.value)
                 }}

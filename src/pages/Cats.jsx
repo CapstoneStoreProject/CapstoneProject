@@ -87,6 +87,16 @@ export default function Cats({token, cat, id, setCart, cart}) {
               return b.age - a.age
         })
     }
+
+    function sortByAlphabetical() {
+        filteredCats.sort((a, b) => {
+            return b.name.toLowerCase() - a.name.toLowerCase()
+            // return a.name - b.name
+
+        }) 
+            
+        
+    }
     
     let filteredCats = cats
     if (selectedBreed !== 'all') {
@@ -99,6 +109,8 @@ export default function Cats({token, cat, id, setCart, cart}) {
         sortByAgeIncreasing()
     } else if (sortBy === 'ageDecrease') {
         sortByAgeDecreasing()
+    } else if (sortBy === 'alphabetical') {
+        sortByAlphabetical()
     }
 
     // console.log(cart)
@@ -126,6 +138,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     <select value={sortBy} onChange={selectSortBy}>
                         <option value="ageIncrease">Youngest to Oldest</option>
                         <option value="ageDecrease">Oldest to Youngest</option>
+                        <option value="alphabetical">Alphabetical</option>
                     </select>
                 </p>
                 <main>

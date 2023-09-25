@@ -70,6 +70,7 @@ export default function SignUpPage({setToken}) {
                     navigate('/')
                 } catch (err) {
                     console.error(err)
+                    setUsrErrorMessage(true)
                 }
             }
             signUp();

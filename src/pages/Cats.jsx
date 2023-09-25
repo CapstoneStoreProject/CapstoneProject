@@ -90,12 +90,9 @@ export default function Cats({token, cat, id, setCart, cart}) {
 
     function sortByAlphabetical() {
         filteredCats.sort((a, b) => {
-            return b.name.toLowerCase() - a.name.toLowerCase()
-            // return a.name - b.name
-
-        }) 
-            
-        
+            // return b.name.toLowerCase() - a.name.toLowerCase()
+            return a.name - b.name
+        })  
     }
     
     let filteredCats = cats
@@ -181,6 +178,8 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     <select value={sortBy} onChange={selectSortBy}>
                         <option value="ageIncrease">Youngest to Oldest</option>
                         <option value="ageDecrease">Oldest to Youngest</option>
+                        <option value="alphabetical">Alphabetical</option>
+
                     </select>
                 </p>
                 <main>

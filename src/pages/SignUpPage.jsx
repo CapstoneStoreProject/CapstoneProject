@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { validPassword } from '../components/regex.js'
 
-// const API_URL = 'http://localhost:4500/api'
-const API_URL = 'https://freecats.onrender.com/api'
+const API_URL = 'http://localhost:4500/api'
+// const API_URL = 'https://freecats.onrender.com/api'
 
 export default function SignUpPage({setToken}) {
     const [name, setName] = useState('')
@@ -52,46 +52,45 @@ export default function SignUpPage({setToken}) {
     }
     return (
         <div>
-
-        <h1>Sign Up</h1>
-        <form onSubmit={submitForm}>
-            <label htmlFor="name">Name: </label>
-            <input
-                value={name} 
-                type="name"
-                id="name"
-                onChange={(e) => {
-                    // setErrorMessage(false);
-                    setName(e.target.value)
-                }} 
-            />
-            <label htmlFor="username">Username: </label>
-            <input
-                value={username} 
-                type="username"
-                id="username"
-                onChange={(e) => {
-                    setUsrErrorMessage(false);
-                    setUsername(e.target.value)
-                }} 
-            />
-            <br></br>
-            <label htmlFor="password">Password: </label>
-            <input
-                value={password}
-                type="password"
-                id="password"
-                onChange={(e) => {
-                    setPwdErrorMessage(false);
-                    setPassword(e.target.value)
-                }}
-            />
-          
-            <br></br>
-            <button type="submit">Sign Up</button>
-        </form>
-        {pwdErrorMessage && <p>Your password must contain at least one uppercase letter, one lowercase letter, one number and one special character.</p>}
-        {usrErrorMessage && <p>That username is already taken</p>}
+            <h1>Sign Up</h1>
+            <form onSubmit={submitForm}>
+                <label htmlFor="name">Name: </label>
+                <input
+                    value={name} 
+                    type="name"
+                    id="name"
+                    onChange={(e) => {
+                        // setErrorMessage(false);
+                        setName(e.target.value)
+                    }} 
+                />
+                <label htmlFor="username">Username: </label>
+                <input
+                    value={username} 
+                    type="username"
+                    id="username"
+                    onChange={(e) => {
+                        setUsrErrorMessage(false);
+                        setUsername(e.target.value)
+                    }} 
+                />
+                <br></br>
+                <label htmlFor="password">Password: </label>
+                <input
+                    value={password}
+                    type="password"
+                    id="password"
+                    onChange={(e) => {
+                        setPwdErrorMessage(false);
+                        setPassword(e.target.value)
+                    }}
+                />
+            
+                <br></br>
+                <button type="submit">Sign Up</button>
+            </form>
+            {pwdErrorMessage && <p>Your password must contain at least one uppercase letter, one lowercase letter, one number and one special character.</p>}   
+            {usrErrorMessage && <p>That username is already taken</p>}
         </div>
     )
 }

@@ -28,7 +28,7 @@ export default function Cart({token, cat, id, cart, setCart}) {
                         ))
                     }
                     <br></br>
-                    <Link to="/CheckoutPage">Checkout</Link> 
+                    <Link to="/CheckoutPage" className="btn btn-success checkout">Checkout</Link> 
             </main>
         </>
     )

@@ -188,7 +188,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
                         <option value="ageIncrease">Youngest to Oldest</option>
                         <option value="ageDecrease">Oldest to Youngest</option>
                         <option value="alphabetical">Alphabetical</option>
-
+                        <option value="reverseAlphabetical">Reverse Alphabetical</option>
                     </select>
                 </p>
                 <main>

@@ -1,6 +1,6 @@
 
-const API_URL = 'http://localhost:4500/api'
-// const API_URL = 'https://freecats.onrender.com/api'
+// const API_URL = 'http://localhost:4500/api'
+const API_URL = 'https://freecats.onrender.com/api'
 
 export async function fetchCats() {
     try {

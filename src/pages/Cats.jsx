@@ -89,12 +89,17 @@ export default function Cats({token, cat, id, setCart, cart}) {
     }
 
     function sortByAlphabetical() {
+        let filteredCats = cats
         filteredCats.sort((a, b) => {
-            // return b.name.toLowerCase() - a.name.toLowerCase()
-            return a.name - b.name
+            return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0
         })  
     }
-    
+    function sortByReverseAlphabetical() {
+        let filteredCats = cats
+        filteredCats.sort((a, b) => {
+            return (a.name > b.name) ? -1 : (a.name < b.name) ? 1 : 0
+        })  
+    }
     let filteredCats = cats
     if (selectedBreed !== 'all') {
         filteredCats = filteredCats.filter(cat => cat.breed === selectedBreed)
@@ -108,7 +113,9 @@ export default function Cats({token, cat, id, setCart, cart}) {
         sortByAgeDecreasing()
     } else if (sortBy === 'alphabetical') {
         sortByAlphabetical()
-    }
+    } else if (sortBy === 'reverseAlphabetical') {
+        sortByReverseAlphabetical()
+    } 
 
     // console.log(cart)
     if (token) {
@@ -135,7 +142,9 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     <select value={sortBy} onChange={selectSortBy}>
                         <option value="ageIncrease">Youngest to Oldest</option>
                         <option value="ageDecrease">Oldest to Youngest</option>
-                        {/* <option value="alphabetical">Alphabetical</option> */}
+                        <option value="alphabetical">Alphabetical</option>
+                        <option value="reverseAlphabetical">Reverse Alphabetical</option>
+
                     </select>
                 </p>
                 <main>
@@ -178,7 +187,7 @@ export default function Cats({token, cat, id, setCart, cart}) {
                     <select value={sortBy} onChange={selectSortBy}>
                         <option value="ageIncrease">Youngest to Oldest</option>
                         <option value="ageDecrease">Oldest to Youngest</option>
-                        {/* <option value="alphabetical">Alphabetical</option> */}
+                        <option value="alphabetical">Alphabetical</option>
 
                     </select>
                 </p>

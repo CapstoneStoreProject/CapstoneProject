@@ -1,10 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteCatById } from '../API'
-import { Autocomplete, verify, AddressForm } from '@lob/react-address-autocomplete'
+// import { Autocomplete, verify, AddressForm } from '@lob/react-address-autocomplete'
+import {
+    MDBRow,
+    MDBCol,
+    MDBInput,
+    MDBCheckbox,
+    MDBBtn
+  } from 'mdb-react-ui-kit';
 export default function CheckoutPage({token, cart, setCart}) {
-    const [selectedAddress, setSelectedAddress] = useState({})
-    const [verificationResult, setVerificationResult] = useState(null)
+    // const [selectedAddress, setSelectedAddress] = useState({})
+    // const [verificationResult, setVerificationResult] = useState(null)
     console.log(cart)
     const navigate = useNavigate()
     async function handleClick() {
@@ -36,7 +43,33 @@ export default function CheckoutPage({token, cart, setCart}) {
                 apiKey="YOUR_API_KEY"
                 onSelection={selected => setSelectedAddress(selected.value)}
             /> */}
-            <p>delivery of cat flat rate (stretch goal price based on milage)</p>
+               <form>
+      <MDBRow className='mb-4'>
+        <MDBCol>
+          <MDBInput id='form6Example1' label='First name' />
+        </MDBCol>
+        <MDBCol>
+          <MDBInput id='form6Example2' label='Last name' />
+        </MDBCol>
+      </MDBRow>
+
+      {/* <MDBInput wrapperClass='mb-4' id='form6Example3' label='Company name' /> */}
+      <MDBInput wrapperClass='mb-4' id='form6Example4' label='Address' />
+      <MDBInput wrapperClass='mb-4' type='email' id='form6Example5' label='Email' />
+      <MDBInput wrapperClass='mb-4' type='tel' id='form6Example6' label='Phone' />
+
+      <MDBInput wrapperClass='mb-4' textarea id='form6Example7' rows={4} label='Additional information' />
+
+      {/* <MDBCheckbox
+        wrapperClass='d-flex justify-content-center mb-4'
+        id='form6Example8'
+        label='Create an account?'
+        defaultChecked
+      /> */}
+
+      
+    </form>
+            <p>delivery of cat flat rate (stretch goal price based on milage--requires me to have a location)</p>
             <p>pick up cat for free</p>
             <button className="btn btn-success checkout" onClick={() => handleClick()}>Checkout</button>
         </>

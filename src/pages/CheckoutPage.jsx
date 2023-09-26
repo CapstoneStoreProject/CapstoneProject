@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteCatById } from '../API'
 // import { Autocomplete, verify, AddressForm } from '@lob/react-address-autocomplete'
-import {
-    MDBRow,
-    MDBCol,
-    MDBInput,
-    MDBCheckbox,
-    MDBBtn
-  } from 'mdb-react-ui-kit';
+// import {
+//     MDBRow,
+//     MDBCol,
+//     MDBInput,
+//     MDBCheckbox,
+//     MDBBtn
+//   } from 'mdb-react-ui-kit';
 export default function CheckoutPage({token, cart, setCart}) {
     // const [selectedAddress, setSelectedAddress] = useState({})
     // const [verificationResult, setVerificationResult] = useState(null)
@@ -18,15 +18,11 @@ export default function CheckoutPage({token, cart, setCart}) {
         for (let i = 0; i < cart.length; i++) {
             await deleteCatById(cart[i].id, token)
         }
-        
         setCart([])
-        
         navigate('/')
     }
     return (
         <>
-           
-
             <h1>Checkout</h1>
             <h3>Click on the Donate button below to help us support our cats while we search for their forever homes.</h3>
             <form action="https://www.paypal.com/donate" method="post" target="_top">
@@ -44,7 +40,13 @@ export default function CheckoutPage({token, cart, setCart}) {
                 onSelection={selected => setSelectedAddress(selected.value)}
             /> */}
                <form>
-      <MDBRow className='mb-4'>
+                {/* <MDBCheckbox
+        wrapperClass='d-flex justify-content-center mb-4'
+        id='form6Example8'
+        label='Delivery'
+        // defaultChecked
+      /> */}
+      {/* <MDBRow className='mb-4'>
         <MDBCol>
           <MDBInput id='form6Example1' label='First name' />
         </MDBCol>
@@ -53,22 +55,17 @@ export default function CheckoutPage({token, cart, setCart}) {
         </MDBCol>
       </MDBRow>
 
-      {/* <MDBInput wrapperClass='mb-4' id='form6Example3' label='Company name' /> */}
       <MDBInput wrapperClass='mb-4' id='form6Example4' label='Address' />
       <MDBInput wrapperClass='mb-4' type='email' id='form6Example5' label='Email' />
       <MDBInput wrapperClass='mb-4' type='tel' id='form6Example6' label='Phone' />
 
       <MDBInput wrapperClass='mb-4' textarea id='form6Example7' rows={4} label='Additional information' />
 
-      {/* <MDBCheckbox
-        wrapperClass='d-flex justify-content-center mb-4'
-        id='form6Example8'
-        label='Create an account?'
-        defaultChecked
-      /> */}
+       */}
 
       
     </form>
+    
             <p>delivery of cat flat rate (stretch goal price based on milage--requires me to have a location)</p>
             <p>pick up cat for free</p>
             <button className="btn btn-success checkout" onClick={() => handleClick()}>Checkout</button>

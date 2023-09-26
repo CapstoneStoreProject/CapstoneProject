@@ -84,8 +84,17 @@ export default function SignUpPage({setToken}) {
                         setPwdErrorMessage(false);
                         setPassword(e.target.value)
                     }}
+                    
                 />
-            
+                <div>
+                    <div className="row g-3 align-items-center">
+                        <div>
+                            <span id="passwordHelpInline" className="form-text">
+                                Password must be 8-20 characters long, have at least one uppercase letter, <br></br>one lowercase letter, one number and one special character.
+                            </span>
+                        </div>
+                    </div>
+                </div>
                 <br></br>
                 <button type="submit">Sign Up</button>
             </form>

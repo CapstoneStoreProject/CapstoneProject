@@ -15,7 +15,7 @@ export default function NavBar({ token, setToken, cart }) {
             <div className="navDiv">
                 <nav className="navbar sticky-top bg-body-tertiary navbar-expand-lg bg-body-tertiary">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#">Website Name</a>
+                        <a className="navbar-brand" href="#">Purrfect Match</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                         </button>
@@ -32,12 +32,12 @@ export default function NavBar({ token, setToken, cart }) {
                 </div>
             </>
         )
-    } else if (token&& cart.length === 0) {
+    } else if (token && cart.length === 0) {
         return(
             <>
                 <nav className="navbar sticky-top bg-body-tertiary navbar-expand-lg bg-body-tertiary">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#">Website Name</a>
+                        <a className="navbar-brand" href="#">Purrfect Match</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                         </button>
@@ -58,7 +58,7 @@ export default function NavBar({ token, setToken, cart }) {
             <>
                 <nav className="navbar sticky-top bg-body-tertiary navbar-expand-lg bg-body-tertiary">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#">Website Name</a>
+                        <a className="navbar-brand" href="#">Purrfect Match</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                         </button>

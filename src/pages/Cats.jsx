@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import CatCard from "../components/CatCard";
 import { fetchCatById, fetchCats } from "../API/index.js"
-
+import SearchBar from '../components/SearchBar';
 //get all cats and map them
 export default function Cats({token, id, cat, setCart, cart}) {
-    // const { name, imgurl, age, sex, color, description, breed, neutered, price } = cat;
+    const [filteredCats, setFilteredCats] = useState([])
 
     const [cats, setCats] = useState([]);
     const [breeds, setBreeds] = useState([])
@@ -12,11 +12,9 @@ export default function Cats({token, id, cat, setCart, cart}) {
     const [sexes, setSex] = useState([])
     const [selectedSex, setSelectedSex] = useState('all')
     const [sortBy, setSortBy] = useState('ageIncrease');
-    // const [filterCats, setFilterCats] = useState([])
-    let filteredCats = [...cats]
+   
     async function fetchData() {
         const data = await fetchCats();
-        // setFilterCats(data)
         setCats(data);
         const breeds = data.map(cat => cat.breed);
         const uniqueBreeds = [...new Set(breeds)];
@@ -82,37 +80,30 @@ export default function Cats({token, id, cat, setCart, cart}) {
     }
 
     function sortByAlphabetical() {
-        let filteredCats = cats
         filteredCats.sort((a, b) => {
             return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0
         })  
     }
     function sortByReverseAlphabetical() {
-        let filteredCats = cats
         filteredCats.sort((a, b) => {
             return (a.name > b.name) ? -1 : (a.name < b.name) ? 1 : 0
         })  
     }
-    // let filteredCats = cats
-    // function handleSubmit(e) {
-    //     e.preventDefault()
-    //     console.log(cats) 
-    //     const search = e.target.value
-    //     // const filteredCats = [...cats]
-    //     filteredCats = [...cats].filter((cat) => {
-    //       const name = cat.name ? cat.name : ''
-    //       console.log(name)
-    //       return name.toLowerCase().includes(search.toLowerCase())
-    //     })
-    //     // setFilterCats(filterCats)
-    //     //need code to display the cats found in the search
-    // }
-    if (selectedBreed !== 'all') {
-        filteredCats = filteredCats.filter(cat => cat.breed === selectedBreed)
-    } 
-    if (selectedSex !== 'all') {
-        filteredCats = filteredCats.filter(cat => cat.sex === selectedSex)
-    } 
+    function filterCats(cat) {
+        // return cat.breed === selectBreed
+        if (selectedBreed === 'all' && selectedSex === 'all') {
+            return true
+        } 
+        if (selectedBreed !== 'all' && selectedSex !== 'all') {
+            return cat.breed === selectedBreed && cat.sex === selectedSex
+        } 
+        if (selectedSex !== 'all') {
+            return cat.sex === selectedSex
+        } 
+        if (selectedBreed !== 'all') {
+            return cat.breed === selectedBreed
+        } 
+    }
     if (sortBy === 'ageIncrease') {
         sortByAgeIncreasing()
     } else if (sortBy === 'ageDecrease') {
@@ -127,11 +118,7 @@ export default function Cats({token, id, cat, setCart, cart}) {
             <>
                 <h1>CATS IN NEED OF HOMES</h1>
                 
-                {/* <form onSubmit={handleSubmit}>
-                    <label htmlFor="search">Search</label>
-                    <input onChange={handleSubmit} type="text" id="search" />
-                </form> */}
-          
+                <SearchBar filteredCats={filteredCats} setFilteredCats={setFilteredCats} />
                 <p>Breeds:  
                     <select onChange={selectBreed}>
                         <option value="all">All</option>
@@ -159,7 +146,7 @@ export default function Cats({token, id, cat, setCart, cart}) {
                 </p>
                 <main>
                     {
-                        filteredCats.map((cat => (
+                        filteredCats.filter(filterCats).map((cat => (
                         <div className='cat' key={cat.id}>
                             <CatCard
                                 cat={cat}

@@ -1,4 +1,4 @@
-//adoption form
+//adoption
 export default function AdoptionForm() {
 
     return (

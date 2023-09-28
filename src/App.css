@@ -1,7 +1,5 @@
 #root {
-  /* max-width: 1280px; */
   margin: 0 auto;
-  /* padding: 2rem; */
   text-align: center;
   min-height: 100vh;
   min-width: 100%;
@@ -9,6 +7,7 @@
 body {
   background-color: rgb(8, 231, 231);
   /* padding: 5px; */
+  display: flex;
 }
 a {
   padding: 20px;
@@ -32,5 +31,31 @@ h1 {
 }
 
 .homepage {
-  padding: 10px;
+  padding-left: 170px;
+  padding-right: 170px;
 }
+
+.checkout {
+  margin-bottom: 40px;
+}
+
+.radio {
+  margin-right: 0.5rem;
+  margin-top: 3px;
+  position: absolute;
+  background: blue;
+  border-radius: 100%;
+  border: 1px solid darken(blue, 25%);
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  top: -0.2em;
+  margin-right: 1em; 
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms ease;
+}
+    
+  

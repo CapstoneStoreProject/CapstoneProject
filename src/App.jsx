@@ -20,6 +20,7 @@ function App() {
 
   return (
     <>
+    
       <NavBar token={token} setToken={setToken} cart={cart}/>
       <div>
       <Routes>

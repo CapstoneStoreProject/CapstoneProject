@@ -3,31 +3,28 @@ import CatCard from "../components/CatCard";
 import { fetchCatById, fetchCats } from "../API/index.js"
 
 //get all cats and map them
-export default function Cats({token, cat, id, setCart, cart}) {
+export default function Cats({token, id, cat, setCart, cart}) {
+    // const { name, imgurl, age, sex, color, description, breed, neutered, price } = cat;
+
     const [cats, setCats] = useState([]);
     const [breeds, setBreeds] = useState([])
     const [selectedBreed, setSelectedBreed] = useState('all')
     const [sexes, setSex] = useState([])
     const [selectedSex, setSelectedSex] = useState('all')
     const [sortBy, setSortBy] = useState('ageIncrease');
-    
+    // const [filterCats, setFilterCats] = useState([])
+    let filteredCats = [...cats]
     async function fetchData() {
-        const cats = await fetchCats();
-        // console.log(data)
-        const breeds = cats.map(cat => cat.breed);
+        const data = await fetchCats();
+        // setFilterCats(data)
+        setCats(data);
+        const breeds = data.map(cat => cat.breed);
         const uniqueBreeds = [...new Set(breeds)];
-        setBreeds(uniqueBreeds);
-        setCats(cats);
-    }
-    async function fetchSex() {
-        const cats = await fetchCats();
-        // console.log(data)
-        const sexes = cats.map(cat => cat.sex);
+        const sexes = data.map(cat => cat.sex);
         const uniqueSexes= [...new Set(sexes)];
         setSex(uniqueSexes);
-        setCats(cats);
+        setBreeds(uniqueBreeds);
     }
-    // console.log(breeds)
 
     async function handleClick(id, token, e) {
         // console.log("id", id)
@@ -49,20 +46,16 @@ export default function Cats({token, cat, id, setCart, cart}) {
                 }
             } else {
                 console.log("You already added this cat to your cart")
-                // setErrorMessage("You already added this cat to your cart")
                 alert("You already added this cat to your cart")
             }
                 
         } else {
-            console.log("You must be logged in to add to cart")
-            // setErrorMessage("You must be logged in to add to cart")
-            
+            console.log("You must be logged in to add to cart")            
         }
     }
     
     useEffect(() => {
         fetchData()
-        fetchSex()
     }, []) 
 
     function selectBreed(e) {
@@ -100,7 +93,20 @@ export default function Cats({token, cat, id, setCart, cart}) {
             return (a.name > b.name) ? -1 : (a.name < b.name) ? 1 : 0
         })  
     }
-    let filteredCats = cats
+    // let filteredCats = cats
+    // function handleSubmit(e) {
+    //     e.preventDefault()
+    //     console.log(cats) 
+    //     const search = e.target.value
+    //     // const filteredCats = [...cats]
+    //     filteredCats = [...cats].filter((cat) => {
+    //       const name = cat.name ? cat.name : ''
+    //       console.log(name)
+    //       return name.toLowerCase().includes(search.toLowerCase())
+    //     })
+    //     // setFilterCats(filterCats)
+    //     //need code to display the cats found in the search
+    // }
     if (selectedBreed !== 'all') {
         filteredCats = filteredCats.filter(cat => cat.breed === selectedBreed)
     } 
@@ -116,12 +122,16 @@ export default function Cats({token, cat, id, setCart, cart}) {
     } else if (sortBy === 'reverseAlphabetical') {
         sortByReverseAlphabetical()
     } 
-
-    // console.log(cart)
-    if (token) {
+    
         return (
             <>
                 <h1>CATS IN NEED OF HOMES</h1>
+                
+                {/* <form onSubmit={handleSubmit}>
+                    <label htmlFor="search">Search</label>
+                    <input onChange={handleSubmit} type="text" id="search" />
+                </form> */}
+          
                 <p>Breeds:  
                     <select onChange={selectBreed}>
                         <option value="all">All</option>
@@ -156,58 +166,12 @@ export default function Cats({token, cat, id, setCart, cart}) {
                                 token={token}
                                 fetchData={fetchData}
                             />
-                            <button className="addToCartButton" onClick={(e) => handleClick(cat.id, token, e)}>Add to Cart</button>
+                            { token ? <button className="addToCartButton" onClick={(e) => handleClick(cat.id, token, e)}>Add to Cart</button> : <p>You must login to select a cat to adopt</p>}
                             </div>
                         )))     
                     }
                 </main>
             </>
         )
-    } else {
-        return (
-            <>
-                <h1>CATS IN NEED OF HOMES</h1>
-                <p>Breeds:  
-                    <select onChange={selectBreed}>
-                        <option value="all">All</option>
-                        {breeds.map(breed => (
-                            <option value={breed} key={breed}>{breed}</option>
-                        ))}
-                    </select>
-                </p>
-                <p>Sex:  
-                    <select onChange={selectSex}>
-                        <option value="all">All</option>
-                        {sexes.map(sex => (
-                            <option value={sex} key={sex}>{sex}</option>
-                        ))}
-                    </select>
-                </p>
-                <p>View By Order:
-                    <select value={sortBy} onChange={selectSortBy}>
-                        <option value="ageIncrease">Youngest to Oldest</option>
-                        <option value="ageDecrease">Oldest to Youngest</option>
-                        <option value="alphabetical">Alphabetical</option>
-                        <option value="reverseAlphabetical">Reverse Alphabetical</option>
-                    </select>
-                </p>
-                <main>
-                    {
-                        filteredCats.map((cat) => (
-                        <div className='cat' key={cat.id}>
-                            <CatCard
-                                cat={cat}
-                                token={token}
-                                fetchData={fetchData}
-                            />
-                            <p>You must login to select a cat to adopt</p>
-                            </div>
-                        ))
-                    }
-                </main>
-            </>
-        )
-    }
-    
-    
+
 }

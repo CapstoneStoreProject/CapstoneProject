@@ -1,5 +1,5 @@
 Live site: https://harmonious-panda-8b4205.netlify.app/
-
+Live site is safe despite warning.
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

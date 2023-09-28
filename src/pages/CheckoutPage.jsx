@@ -2,17 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteCatById } from '../API'
 import AddressForm from '../components/AddressForm.jsx'
-// import { Autocomplete, verify, AddressForm } from '@lob/react-address-autocomplete'
-// import {
-//     MDBRow,
-//     MDBCol,
-//     MDBInput,
-//     MDBCheckbox,
-//     MDBBtn
-//   } from 'mdb-react-ui-kit';
+
 export default function CheckoutPage({token, cart, setCart}) {
-    // const [selectedAddress, setSelectedAddress] = useState({})
-    // const [verificationResult, setVerificationResult] = useState(null)
     const [deliver, setDeliver] = useState(false)
     console.log(cart)
     const navigate = useNavigate()
@@ -48,7 +39,7 @@ export default function CheckoutPage({token, cart, setCart}) {
             <div className="form-check">
                 <input onClick={pickup} className="radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
                 <label className="form-check-label" htmlFor="flexRadioDefault1">
-                    Pick Up
+                    Pick Up (Free)
                 </label>
                 </div>
                 <div className="form-check">
@@ -58,39 +49,9 @@ export default function CheckoutPage({token, cart, setCart}) {
                 </label>
             </div>
             { deliver ? <AddressForm /> : <p>Pick up location.</p>}
-            {/* <AddressForm
-                apiKey="YOUR_API_KEY"
-                onSelection={selected => setSelectedAddress(selected.value)}
-            /> */}
-               <form>
-                {/* <MDBCheckbox
-        wrapperClass='d-flex justify-content-center mb-4'
-        id='form6Example8'
-        label='Delivery'
-        // defaultChecked
-      /> */}
-      {/* <MDBRow className='mb-4'>
-        <MDBCol>
-          <MDBInput id='form6Example1' label='First name' />
-        </MDBCol>
-        <MDBCol>
-          <MDBInput id='form6Example2' label='Last name' />
-        </MDBCol>
-      </MDBRow>
-
-      <MDBInput wrapperClass='mb-4' id='form6Example4' label='Address' />
-      <MDBInput wrapperClass='mb-4' type='email' id='form6Example5' label='Email' />
-      <MDBInput wrapperClass='mb-4' type='tel' id='form6Example6' label='Phone' />
-
-      <MDBInput wrapperClass='mb-4' textarea id='form6Example7' rows={4} label='Additional information' />
-
-       */}
-
-      
-    </form>
     
-            <p>delivery of cat flat rate (stretch goal price based on milage--requires me to have a location)</p>
-            <p>pick up cat for free</p>
+            <p>Delivery of cat flat rate (stretch goal price based on milage--requires me to have a location)</p>
+            {/* <p>pick up cat for free</p> */}
             <button className="btn btn-success checkout" onClick={() => handleClick()}>Checkout</button>
         </>
     )

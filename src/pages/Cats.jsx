@@ -94,19 +94,19 @@ export default function Cats({token, id, cat, setCart, cart}) {
         })  
     }
     // let filteredCats = cats
-    function handleSubmit(e) {
-        e.preventDefault()
-        console.log(cats) 
-        const search = e.target.value
-        // const filteredCats = [...cats]
-        filteredCats = [...cats].filter((cat) => {
-          const name = cat.name ? cat.name : ''
-          console.log(name)
-          return name.toLowerCase().includes(search.toLowerCase())
-        })
-        // setFilterCats(filterCats)
-        //need code to display the cats found in the search
-    }
+    // function handleSubmit(e) {
+    //     e.preventDefault()
+    //     console.log(cats) 
+    //     const search = e.target.value
+    //     // const filteredCats = [...cats]
+    //     filteredCats = [...cats].filter((cat) => {
+    //       const name = cat.name ? cat.name : ''
+    //       console.log(name)
+    //       return name.toLowerCase().includes(search.toLowerCase())
+    //     })
+    //     // setFilterCats(filterCats)
+    //     //need code to display the cats found in the search
+    // }
     if (selectedBreed !== 'all') {
         filteredCats = filteredCats.filter(cat => cat.breed === selectedBreed)
     } 
@@ -127,10 +127,10 @@ export default function Cats({token, id, cat, setCart, cart}) {
             <>
                 <h1>CATS IN NEED OF HOMES</h1>
                 
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}>
                     <label htmlFor="search">Search</label>
                     <input onChange={handleSubmit} type="text" id="search" />
-                </form>
+                </form> */}
           
                 <p>Breeds:  
                     <select onChange={selectBreed}>

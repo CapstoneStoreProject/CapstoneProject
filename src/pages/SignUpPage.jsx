@@ -5,7 +5,7 @@ import { validPassword } from '../components/regex.js'
 const API_URL = 'http://localhost:4500/api'
 // const API_URL = 'https://freecats.onrender.com/api'
 
-export default function SignUpPage({setToken}) {
+export default function SignUpPage({setToken, cart}) {
     const [name, setName] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -41,6 +41,7 @@ export default function SignUpPage({setToken}) {
                     // console.log(result)
                     localStorage.setItem('token', token);
                     setToken(token)
+                    localStorage.removeItem(cart)
                     navigate('/')
                 } catch (err) {
                     console.error(err)
@@ -48,6 +49,7 @@ export default function SignUpPage({setToken}) {
                 }
             }
             signUp();
+            
         }
     }
     return (

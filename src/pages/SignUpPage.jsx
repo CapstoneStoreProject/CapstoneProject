@@ -53,7 +53,7 @@ export default function SignUpPage({setToken, cart}) {
         }
     }
     return (
-        <div>
+        <div className='signup'>
             <h1>Sign Up</h1>
             <form onSubmit={submitForm}>
                 <label htmlFor="name">Name: </label>

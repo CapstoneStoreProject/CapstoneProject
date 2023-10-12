@@ -16,7 +16,7 @@ export default function CatCard({ token, cat, fetchCats }) {
             <>
                 <div className="CatCard" key={id}>
                     <h2>{name}</h2>
-                    <img src={imgurl} width="300px"/>
+                    <img src={imgurl} width="280px"/>
                     <p>
                         <b>Age:</b> {age} years old
                         <br></br>

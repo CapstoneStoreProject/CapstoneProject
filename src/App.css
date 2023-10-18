@@ -11,7 +11,9 @@ body {
 a {
   padding: 20px;
 }
-
+img {
+  padding-bottom: 4px;
+}
 .cat {
   display: flex;
   flex-direction: column;
@@ -40,9 +42,9 @@ h1 {
   margin: 0 auto;
 }
 .signup {
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
- }
+}
  
 .checkout {
   margin-bottom: 40px;

@@ -113,8 +113,8 @@ export default function Cats({token, id, cat, setCart, cart}) {
         sortByReverseAlphabetical()
     } 
     
-        return (
-            <>
+    return (
+        <>
             <div className='catspage'>
                 <h1>CATS IN NEED OF HOMES</h1>
                 
@@ -158,8 +158,8 @@ export default function Cats({token, id, cat, setCart, cart}) {
                         )))     
                     }
                 </main>
-                </div>
-            </>
-        )
+            </div>
+        </>
+    )
 
 }

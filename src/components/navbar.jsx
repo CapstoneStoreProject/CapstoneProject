@@ -12,7 +12,7 @@ export default function NavBar({ token, setToken, cart }) {
     if (!token) {
         return (
             <>
-            <div className="navDiv">
+                <div className="navDiv">
                 <nav className="navbar sticky-top bg-body-tertiary navbar-expand-lg bg-body-tertiary">
                     <div className="container-fluid">
                         <a className="navbar-brand" href="#">Purrfect Match</a>

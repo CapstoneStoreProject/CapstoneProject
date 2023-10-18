@@ -53,24 +53,29 @@ export default function SignUpPage({setToken, cart}) {
         }
     }
     return (
-        <div>
+        <div className='signup'>
             <h1>Sign Up</h1>
             <form onSubmit={submitForm}>
                 <label htmlFor="name">Name: </label>
                 <input
                     value={name} 
                     type="name"
-                    id="name"
+                    id="name floatingInput"
+                    className="form-control"
+                    placeholder="John Doe"
                     onChange={(e) => {
                         // setErrorMessage(false);
                         setName(e.target.value)
                     }} 
-                />
+                /> 
+                <br></br>
                 <label htmlFor="username">Username: </label>
                 <input
                     value={username} 
                     type="username"
-                    id="username"
+                    id="username floatingInput"
+                    className="form-control"
+                    placeholder="JohnDoe1"
                     onChange={(e) => {
                         setUsrErrorMessage(false);
                         setUsername(e.target.value)
@@ -81,7 +86,9 @@ export default function SignUpPage({setToken, cart}) {
                 <input
                     value={password}
                     type="password"
-                    id="password"
+                    id="password floatingInput"
+                    className="form-control"
+                    placeholder="Password12!"
                     onChange={(e) => {
                         setPwdErrorMessage(false);
                         setPassword(e.target.value)

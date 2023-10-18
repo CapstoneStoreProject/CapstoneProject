@@ -22,6 +22,7 @@ export default function CheckoutPage({token, cart, setCart}) {
     }
     return (
         <>
+        <div className='checkoutpage'>
             <h1>Checkout</h1>
             <h3>Click on the Donate button below to help us support our cats while we search for their forever homes.</h3>
             <br></br>
@@ -50,9 +51,10 @@ export default function CheckoutPage({token, cart, setCart}) {
             </div>
             { deliver ? <AddressForm /> : <p>Pick up location.</p>}
     
-            <p>Delivery of cat flat rate (stretch goal price based on milage--requires me to have a location)</p>
+            {/* <p>Delivery of cat flat rate (stretch goal price based on milage--requires me to have a location)</p> */}
             {/* <p>pick up cat for free</p> */}
             <button className="btn btn-success checkout" onClick={() => handleClick()}>Checkout</button>
+            </div>
         </>
     )
 }

@@ -90,7 +90,6 @@ export default function Cats({token, id, cat, setCart, cart}) {
         })  
     }
     function filterCats(cat) {
-        // return cat.breed === selectBreed
         if (selectedBreed === 'all' && selectedSex === 'all') {
             return true
         } 
@@ -114,8 +113,9 @@ export default function Cats({token, id, cat, setCart, cart}) {
         sortByReverseAlphabetical()
     } 
     
-        return (
-            <>
+    return (
+        <>
+            <div className='catspage'>
                 <h1>CATS IN NEED OF HOMES</h1>
                 
                 <SearchBar filteredCats={filteredCats} setFilteredCats={setFilteredCats} />
@@ -158,7 +158,8 @@ export default function Cats({token, id, cat, setCart, cart}) {
                         )))     
                     }
                 </main>
-            </>
-        )
+            </div>
+        </>
+    )
 
 }

@@ -24,7 +24,7 @@ export default function SearchBar({setFilteredCats}) {
       }
     return (
          <form onSubmit={handleSubmit}>
-            <label htmlFor="search">Search</label>
+            <label htmlFor="search">Search for name:</label>
             <input onChange={handleSubmit} type="text" id="search" />
         </form> 
     )

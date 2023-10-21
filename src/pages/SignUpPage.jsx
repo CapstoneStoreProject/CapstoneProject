@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { validPassword } from '../components/regex.js'
 
 // const API_URL = 'http://localhost:4500/api'
-const API_URL = 'https://freecats.onrender.com/api'
+// const API_URL = 'https://freecats.onrender.com/api'
+const ENV_VAR = 'https://freecats.onrender.com/api'
+const API_URL = ENV_VAR || 'http://localhost:4500/api'
+
 
 export default function SignUpPage({setToken, cart}) {
     const [name, setName] = useState('')

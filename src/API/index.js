@@ -1,7 +1,7 @@
 
 // const API_URL = 'http://localhost:4500/api'
-const ENV_VAR = 'https://freecats.onrender.com/api'
-const API_URL = ENV_VAR || 'http://localhost:4500/api'
+// const ENV_VAR = 'https://freecats.onrender.com/api'
+const API_URL = process.env.ENV_VAR || 'http://localhost:4500/api'
 
 export async function fetchCats() {
     try {
